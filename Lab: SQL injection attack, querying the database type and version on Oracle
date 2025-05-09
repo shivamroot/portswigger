@@ -1,0 +1,17 @@
+This lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query.
+
+To solve the lab, display the database version string.
+open lab now copy opened lab url and open burpsuit in kali or windows in burpsuit go to proxy and then on the interceptor
+then open browser paste the url .then turn off interceptor.then ctrl+r (right click on the data got from the browser)then click on open in repeater.go to repeater then 
+click send.
+200 ok is shown
+then after --> GET /filter?category=Tech+gifts add ' sign to check that can we attack by sql injection.after add ' and hiting send if their is 500 interna server error 
+then also add--> -- after ' if their shows original 200 ok then we can attack by sql injection.
+
+given that we have to use UNION for this attack.
+so original command in the repeater is --> GET /filter?category=Tech+gifts
+now after add ' after original command their is 500 error so 
+adding '-- after original command so (-- used for comment in sql) click send their is no error.
+so we have to inject malicious script before(--) and after(') script must be contain UNION keyword,so
+1.first command--> '+UNION+SELECT+NULL--        then click send.500 internal server error.
+2.second command--> '+UNION+SELECT+NULL<NULL--   then click send.
