@@ -1,0 +1,8 @@
+Lab: Reflected XSS into HTML context with nothing encoded
+This lab contains a simple reflected cross-site scripting vulnerability in the search functionality.
+
+To solve the lab, perform a cross-site scripting attack that calls the alert function.
+in search bar search for hi then inspect.
+now their is <hi>hi</h1> will shown .
+now we can end h1 tag and start script tag and then add alert function in that script tag.
+now give input as ==> "><script>alert("xss by shivam")</script>
